@@ -1,1 +1,36 @@
-/* No CSS *//*# sourceMappingURL=theme.css.map */
+html, header, footer {
+  background-color: #E9FFFF;
+}
+
+content {
+  background-color: #EFFFFF;
+}
+
+div, p {
+  color: #000;
+}
+
+h1 {
+  color: #000;
+}
+
+h2, h3 {
+  color: #000;
+}
+
+a {
+  color: #527436;
+}
+
+button {
+  background-color: #FFF;
+  border-color: #214040;
+  color: #214040;
+}
+
+button:hover {
+  background-color: #FFF;
+  border-color: #033030;
+  color: #033030;
+}
+/*# sourceMappingURL=theme.css.map */

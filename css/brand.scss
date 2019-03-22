@@ -5,9 +5,15 @@ $mar_small: 6px;
 $mar_medium: 12px;
 $mar_big: 24px;
 
+$logo_width: 50px;
 $sidebar_width: 120px;
 $main_width: 300px;
 $mobile: ($sidebar_width + $main_width) * 1.5;
+
+$content_image_size: 100px;
+$socials_block_size: 50px;
+$socials_image_size: 25px;
+$link_width: 100px;
 
 @mixin mobile {
   @media (max-width: $mobile) {
@@ -18,38 +24,52 @@ $mobile: ($sidebar_width + $main_width) * 1.5;
 html, body {
   width: 100%;
   height: 100%;
+  font-family: sans-serif;
+}
+
+html, body, p, h1, h2, h3, ul {
   margin: 0;
 }
 
 body * {
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
 header {
   padding: $pad_medium;
   display: flex;
   flex-flow: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
 
-  img {
-    min-height: 100%;
-    flex: 1;
+  > img {
+    width: $logo_width;
   }
 
-  #navBar {
+  > #navBar {
     display: flex;
     flex-flow: wrap;
     justify-content: center;
     padding: $pad_small;
 
-    a {
+    > a {
       padding: $pad_small;
     }
   }
 
   &::after {
     content: '';
-    flex: 1;
+    width: $logo_width;
+  }
+
+  @include mobile() {
+    flex-flow: column;
+
+    img {
+      align-self: center;
+      padding-bottom: $pad_small;
+    }
   }
 }
 
@@ -61,12 +81,62 @@ content {
     padding: $pad_medium;
   }
 
-  sidebar {
+  sidebar.sidebar-right {
     flex: 0 $sidebar_width;
+    
+    > .sidebar-right__news {
+      position: relative;
+      box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
+      padding: $pad_small;
+    }
+
+    > .sidebar-right__news > div {
+      padding: $pad_small;
+    }
   }
 
   main {
     flex: 1 $main_width;
+
+    > div {
+      padding: $pad_small;
+    }
+
+    > #header {
+      text-align: center;
+    }
+
+    > .textBlock {
+      position: relative;
+      display: flex;
+      box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
+      margin: $mar_medium 0;
+
+      > img {
+        width: $content_image_size;
+        height: $content_image_size;
+      }
+
+      > div {
+        padding: $pad_medium;
+        flex: 1;
+      }
+
+      > div > button {
+        font-weight: 700;
+        margin-top: $mar_medium;
+        padding: $pad_medium/2 $pad_medium;
+        border: 1px solid;
+        border-radius: 5px;
+        box-shadow: 5px 5px 6px 0 rgba(0,0,0,.1);
+      }
+
+      > div > button:hover {
+        cursor: pointer;
+        box-shadow: 5px 5px 6px 0 rgba(0,0,0,.2);
+        transition: .1s background-color, .1s border-color, .1s color;
+      }
+    }
   }
 
   @include mobile() {
@@ -76,19 +146,35 @@ content {
 
 footer {
   display: flex;
+  position: relative;
+  box-shadow: 0 -4px 12px 0 rgba(0,0,0,.05), 0 4px 12px 0 rgba(0,0,0,.05);
 
   socials {
     flex: 1;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
 
-    div {
-      flex: 0 50px;
+    > div {
+      flex: 0 $socials_block_size;
+      display: flex;
+      justify-content: center;
+    }
+
+    img {
+      width: $socials_image_size;
     }
   }
 
-  links {
-    flex: 0 100px;
+  ul#links {
+    flex: 0 $link_width;
+    padding: $pad_medium $pad_medium $pad_medium $pad_big;
+    font-size: 90%;
+  }
+
+  ul#links > li {
+    padding: $pad_small;
   }
 
   @include mobile() {
@@ -98,6 +184,6 @@ footer {
 
 @media (max-width: $mobile) {
   body * {
-    font-size: 150%;
+    font-size: 120%;
   }
 }

@@ -1,0 +1,52 @@
+$background_main: #EFFFFF;
+$background_secondary: #E9FFFF;
+
+$font_main: #000;
+$font_header_big: #000;
+$font_header_small: #000;
+
+$link: #527436;
+
+$button_main_background: #FFF;
+$button_main_border: #214040;
+$button_main_font: #214040;
+
+$button_hover_background: #FFF;
+$button_hover_border: #033030;
+$button_hover_font: #033030;
+
+html, header, footer {
+  background-color: $background_secondary;
+}
+
+content {
+  background-color: $background_main;
+}
+
+div, p {
+  color: $font_main;
+}
+
+h1 {
+  color: $font_header_big;
+}
+
+h2, h3 {
+  color: $font_header_small;
+}
+
+a {
+  color: $link;
+}
+
+button {
+  background-color: $button_main_background;
+  border-color: $button_main_border;
+  color: $button_main_font;
+}
+
+button:hover {
+  background-color: $button_hover_background;
+  border-color: $button_hover_border;
+  color: $button_hover_font;
+}
