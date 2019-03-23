@@ -1,52 +1,127 @@
-$background_main: #EFFFFF;
-$background_secondary: #E9FFFF;
+@mixin applyThemes() {
+  @each $theme, $arr in $themes {
+    .theme-#{$theme} & {
+      $theme_name: $theme !global;
+      @content;
+    }
+  }
+}
 
-$font_main: #000;
-$font_header_big: #000;
-$font_header_small: #000;
+@function t($key) {
+  @return map-get(map-get($themes, $theme_name), $key);
+}
 
-$link: #527436;
+$themes: (
+  light: (
+    background_main: #E9FFFF,
+    background_secondary: #EFFFFF,
 
-$button_main_background: #FFF;
-$button_main_border: #214040;
-$button_main_font: #214040;
+    font_main: #000,
+    font_header_big: #000,
+    font_header_small: #000,
 
-$button_hover_background: #FFF;
-$button_hover_border: #033030;
-$button_hover_font: #033030;
+    link: #527436,
 
-html, header, footer {
-  background-color: $background_secondary;
+    button_main_background: #FFF,
+    button_main_border: #214040,
+    button_main_font: #214040,
+
+    button_hover_background: #FFF,
+    button_hover_border: #033030,
+    button_hover_font: #033030
+  ),
+  dark: (
+    background_main: #111,
+    background_secondary: #222,
+
+    font_main: #AAA,
+    font_header_big: #AAA,
+    font_header_small: #AAA,
+
+    link: #AAA,
+
+    button_main_background: #333,
+    button_main_border: #AAA,
+    button_main_font: #AAA,
+
+    button_hover_background: #444,
+    button_hover_border: #BBB,
+    button_hover_font: #BBB
+  ),
+  weird: (
+    background_main: #58374a,
+    background_secondary: #684158,
+
+    font_main: #8581bb,
+    font_header_big: #8581bb,
+    font_header_small: #8581bb,
+
+    link: #8581bb,
+
+    button_main_background: #8b4c71,
+    button_main_border: #8581bb,
+    button_main_font: #8581bb,
+
+    button_hover_background: #a36087,
+    button_hover_border: #9f9bdb,
+    button_hover_font: #9f9bdb
+  )
+);
+
+body, header, footer {
+  @include applyThemes() {
+    background-color: t(background_secondary);
+  }
 }
 
 content {
-  background-color: $background_main;
+  @include applyThemes() {
+    background-color: t(background_main);
+  }
+
+  .text-block, .sidebar-right__news {
+    @include applyThemes() {
+      background-color: t(background_secondary);
+    }
+  }
 }
 
 div, p {
-  color: $font_main;
+  @include applyThemes() {
+    color: t(font_main);
+  }
 }
 
 h1 {
-  color: $font_header_big;
+  @include applyThemes() {
+    color: t(font_header_big);
+  }
 }
 
 h2, h3 {
-  color: $font_header_small;
+  @include applyThemes() {
+    color: t(font_header_small);
+  }
 }
 
 a {
-  color: $link;
+  @include applyThemes() {
+    color: t(link);
+  }
 }
 
 button {
-  background-color: $button_main_background;
-  border-color: $button_main_border;
-  color: $button_main_font;
+  @include applyThemes() {
+    background-color: t(button_main_background);
+    border-color: t(button_main_border);
+    color: t(button_main_font);
+  }
 }
 
 button:hover {
-  background-color: $button_hover_background;
-  border-color: $button_hover_border;
-  color: $button_hover_font;
+  @include applyThemes() {
+    background-color: t(button_hover_background);
+    border-color: t(button_hover_border);
+    color: t(button_hover_font);
+  }
 }

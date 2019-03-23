@@ -8,6 +8,28 @@ html, body, p, h1, h2, h3, ul {
   margin: 0;
 }
 
+button {
+  font-weight: 700;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border: 1px solid;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: .1s background-color, .1s border-color, .1s color;
+  transition: .1s background-color, .1s border-color, .1s color;
+}
+
+button:focus {
+  outline: 0;
+}
+
 header {
   padding: 12px;
   display: -webkit-box;
@@ -24,10 +46,13 @@ header {
 }
 
 header > img {
+  position: relative;
   width: 50px;
+  -webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
 }
 
-header > #navBar {
+header > #nav-bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,7 +64,7 @@ header > #navBar {
   padding: 6px;
 }
 
-header > #navBar > a {
+header > #nav-bar > a {
   padding: 6px;
 }
 
@@ -59,7 +84,7 @@ header::after {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
-    padding-bottom: 6px;
+    margin-bottom: 6px;
   }
 }
 
@@ -77,6 +102,22 @@ content main, content sidebar {
   padding: 12px;
 }
 
+content sidebar.sidebar-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+content sidebar.sidebar-left > button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 content sidebar.sidebar-right {
   -webkit-box-flex: 0;
       -ms-flex: 0 120px;
@@ -88,6 +129,7 @@ content sidebar.sidebar-right > .sidebar-right__news {
   -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
   padding: 6px;
+  border-radius: 5px;
 }
 
 content sidebar.sidebar-right > .sidebar-right__news > div {
@@ -108,7 +150,7 @@ content main > #header {
   text-align: center;
 }
 
-content main > .textBlock {
+content main > .text-block {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -116,36 +158,19 @@ content main > .textBlock {
   -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
   margin: 12px 0;
+  border-radius: 5px;
 }
 
-content main > .textBlock > img {
+content main > .text-block > img {
   width: 100px;
   height: 100px;
 }
 
-content main > .textBlock > div {
+content main > .text-block > div {
   padding: 12px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-}
-
-content main > .textBlock > div > button {
-  font-weight: 700;
-  margin-top: 12px;
-  padding: 6px 12px;
-  border: 1px solid;
-  border-radius: 5px;
-  -webkit-box-shadow: 5px 5px 6px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 5px 5px 6px 0 rgba(0, 0, 0, 0.1);
-}
-
-content main > .textBlock > div > button:hover {
-  cursor: pointer;
-  -webkit-box-shadow: 5px 5px 6px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 5px 5px 6px 0 rgba(0, 0, 0, 0.2);
-  -webkit-transition: .1s background-color, .1s border-color, .1s color;
-  transition: .1s background-color, .1s border-color, .1s color;
 }
 
 @media (max-width: 630px) {
@@ -154,6 +179,18 @@ content main > .textBlock > div > button:hover {
     -webkit-box-direction: normal;
         -ms-flex-flow: column;
             flex-flow: column;
+  }
+  content sidebar.sidebar-left {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  content sidebar.sidebar-right {
+    text-align: center;
   }
 }
 
@@ -197,6 +234,7 @@ footer socials > div {
 
 footer socials img {
   width: 25px;
+  padding: 12px;
 }
 
 footer ul#links {
@@ -217,6 +255,9 @@ footer ul#links > li {
     -webkit-box-direction: normal;
         -ms-flex-flow: column;
             flex-flow: column;
+  }
+  footer socials img {
+    width: 37.5px;
   }
 }
 

@@ -1,36 +1,120 @@
-html, header, footer {
-  background-color: #E9FFFF;
-}
-
-content {
+.theme-light body, .theme-light header, .theme-light footer {
   background-color: #EFFFFF;
 }
 
-div, p {
+.theme-dark body, .theme-dark header, .theme-dark footer {
+  background-color: #222;
+}
+
+.theme-weird body, .theme-weird header, .theme-weird footer {
+  background-color: #684158;
+}
+
+.theme-light content {
+  background-color: #E9FFFF;
+}
+
+.theme-dark content {
+  background-color: #111;
+}
+
+.theme-weird content {
+  background-color: #58374a;
+}
+
+.theme-light content .text-block, .theme-light content .sidebar-right__news {
+  background-color: #EFFFFF;
+}
+
+.theme-dark content .text-block, .theme-dark content .sidebar-right__news {
+  background-color: #222;
+}
+
+.theme-weird content .text-block, .theme-weird content .sidebar-right__news {
+  background-color: #684158;
+}
+
+.theme-light div, .theme-light p {
   color: #000;
 }
 
-h1 {
+.theme-dark div, .theme-dark p {
+  color: #AAA;
+}
+
+.theme-weird div, .theme-weird p {
+  color: #8581bb;
+}
+
+.theme-light h1 {
   color: #000;
 }
 
-h2, h3 {
+.theme-dark h1 {
+  color: #AAA;
+}
+
+.theme-weird h1 {
+  color: #8581bb;
+}
+
+.theme-light h2, .theme-light h3 {
   color: #000;
 }
 
-a {
+.theme-dark h2, .theme-dark h3 {
+  color: #AAA;
+}
+
+.theme-weird h2, .theme-weird h3 {
+  color: #8581bb;
+}
+
+.theme-light a {
   color: #527436;
 }
 
-button {
+.theme-dark a {
+  color: #AAA;
+}
+
+.theme-weird a {
+  color: #8581bb;
+}
+
+.theme-light button {
   background-color: #FFF;
   border-color: #214040;
   color: #214040;
 }
 
-button:hover {
+.theme-dark button {
+  background-color: #333;
+  border-color: #AAA;
+  color: #AAA;
+}
+
+.theme-weird button {
+  background-color: #8b4c71;
+  border-color: #8581bb;
+  color: #8581bb;
+}
+
+.theme-light button:hover {
   background-color: #FFF;
   border-color: #033030;
   color: #033030;
+}
+
+.theme-dark button:hover {
+  background-color: #444;
+  border-color: #BBB;
+  color: #BBB;
+}
+
+.theme-weird button:hover {
+  background-color: #a36087;
+  border-color: #9f9bdb;
+  color: #9f9bdb;
 }
 /*# sourceMappingURL=theme.css.map */

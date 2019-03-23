@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="theme-light">
 
 <head>
   <link rel="stylesheet" href="css/brand.css">
   <link rel="stylesheet" href="css/theme.css">
+  <script src="script/themeSwitcher.js"></script>
 </head>
 
 <body>
   <header>
     <img src="https://picsum.photos/50" alt="Icon" id="header-icon">
-    <div id="navBar">
-      <a href="#" class="navBar__page">page 1</a>
-      <a href="#" class="navBar__page">page 2</a>
-      <a href="#" class="navBar__page">page 3</a>
-      <a href="#" class="navBar__page">page 4</a>
-      <a href="#" class="navBar__page">page 5</a>
-      <a href="#" class="navBar__page">page 6</a>
+    <div id="nav-bar">
+      <a href="#" class="nav-bar__page">page 1</a>
+      <a href="#" class="nav-bar__page">page 2</a>
+      <a href="#" class="nav-bar__page">page 3</a>
+      <a href="#" class="nav-bar__page">page 4</a>
+      <a href="#" class="nav-bar__page">page 5</a>
+      <a href="#" class="nav-bar__page">page 6</a>
     </div>
   </header>
   <content>
     <sidebar class="sidebar-left">
-      <div></div>
+      <button onclick="switchTheme(this)" class="light">Light</button>
+      <button onclick="switchTheme(this)" class="dark">Dark</button>
+      <button onclick="switchTheme(this)" class="weird">Weird</button>
     </sidebar>
     <main>
       <div id="header">
         <h1>Header</h1>
       </div>
-      <div class="textBlock">
+      <div class="text-block">
         <img src="https://picsum.photos/100?random&image=0" alt="News icon" id="header-icon">
         <div>
           <h3>Content Header 1</h3>
@@ -34,7 +37,7 @@
           <button>More...</button>
         </div>
       </div>
-      <div class="textBlock">
+      <div class="text-block">
         <img src="https://picsum.photos/100?random&image=1" alt="News icon" id="header-icon">
         <div>
           <h3>Content Header 2</h3>
@@ -42,7 +45,7 @@
           <button>More...</button>
         </div>
       </div>
-      <div class="textBlock">
+      <div class="text-block">
         <img src="https://picsum.photos/100?random&image=2" alt="News icon" id="header-icon">
         <div>
           <h3>Content Header 3</h3>
@@ -50,7 +53,7 @@
           <button>More...</button>
         </div>
       </div>
-      <div class="textBlock">
+      <div class="text-block">
         <img src="https://picsum.photos/100?random&image=3" alt="News icon" id="header-icon">
         <div>
           <h3>Content Header 4</h3>
@@ -58,7 +61,7 @@
           <button>More...</button>
         </div>
       </div>
-      <div class="textBlock">
+      <div class="text-block">
         <img src="https://picsum.photos/100?random&image=4" alt="News icon" id="header-icon">
         <div>
           <h3>Content Header 5</h3>
@@ -66,7 +69,7 @@
           <button>More...</button>
         </div>
       </div>
-      <div class="textBlock">
+      <div class="text-block">
         <img src="https://picsum.photos/100?random&image=5" alt="News icon" id="header-icon">
         <div>
           <h3>Content Header 6</h3>

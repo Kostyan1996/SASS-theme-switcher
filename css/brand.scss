@@ -31,8 +31,23 @@ html, body, p, h1, h2, h3, ul {
   margin: 0;
 }
 
-body * {
-  // border: 1px solid black;
+button {
+  font-weight: 700;
+  margin-top: $mar_medium;
+  padding: $pad_medium/2 $pad_medium;
+  border: 1px solid;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px 0 rgba(0,0,0,.1);
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 4px 4px 6px 0 rgba(0,0,0,.15);
+  transition: .1s background-color, .1s border-color, .1s color;
+}
+
+button:focus {
+  outline: 0;
 }
 
 header {
@@ -44,10 +59,12 @@ header {
   box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
 
   > img {
+    position: relative;
     width: $logo_width;
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.25);
   }
 
-  > #navBar {
+  > #nav-bar {
     display: flex;
     flex-flow: wrap;
     justify-content: center;
@@ -68,7 +85,7 @@ header {
 
     img {
       align-self: center;
-      padding-bottom: $pad_small;
+      margin-bottom: $mar_small;
     }
   }
 }
@@ -81,6 +98,15 @@ content {
     padding: $pad_medium;
   }
 
+  sidebar.sidebar-left {
+    display: flex;
+    flex-flow: column;
+
+    > button {
+      width: fit-content;
+    }
+  }
+
   sidebar.sidebar-right {
     flex: 0 $sidebar_width;
     
@@ -88,6 +114,7 @@ content {
       position: relative;
       box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
       padding: $pad_small;
+      border-radius: 5px;
     }
 
     > .sidebar-right__news > div {
@@ -106,11 +133,12 @@ content {
       text-align: center;
     }
 
-    > .textBlock {
+    > .text-block {
       position: relative;
       display: flex;
       box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
       margin: $mar_medium 0;
+      border-radius: 5px;
 
       > img {
         width: $content_image_size;
@@ -121,26 +149,20 @@ content {
         padding: $pad_medium;
         flex: 1;
       }
-
-      > div > button {
-        font-weight: 700;
-        margin-top: $mar_medium;
-        padding: $pad_medium/2 $pad_medium;
-        border: 1px solid;
-        border-radius: 5px;
-        box-shadow: 5px 5px 6px 0 rgba(0,0,0,.1);
-      }
-
-      > div > button:hover {
-        cursor: pointer;
-        box-shadow: 5px 5px 6px 0 rgba(0,0,0,.2);
-        transition: .1s background-color, .1s border-color, .1s color;
-      }
     }
   }
 
   @include mobile() {
     flex-flow: column;
+
+    sidebar.sidebar-left {
+      flex-flow: row;
+      justify-content: space-evenly;
+    }
+
+    sidebar.sidebar-right {
+      text-align: center;
+    }
   }
 }
 
@@ -164,6 +186,7 @@ footer {
 
     img {
       width: $socials_image_size;
+      padding: $pad_medium;
     }
   }
 
@@ -179,6 +202,10 @@ footer {
 
   @include mobile() {
     flex-flow: column;
+
+    socials img {
+      width: $socials_image_size*1.5;
+    }
   }
 }
 
